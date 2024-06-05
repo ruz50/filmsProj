@@ -1,0 +1,40 @@
+.genresDiv {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;   
+    overflow-y: hidden;   
+    width: 600px;        
+    white-space: nowrap; 
+}
+
+.genresButton {
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(3, 97, 97, 0.158);
+    margin-right: 15px;
+    flex-shrink: 0;  
+}
+
+.genresDiv:hover {
+    overflow-x: auto;  
+}
+
+.genresDiv::-webkit-scrollbar {
+    height: 8px;      
+}
+
+.genresDiv::-webkit-scrollbar-thumb {
+    background: #888;  
+    border-radius: 10px;
+}
+
+.genresDiv::-webkit-scrollbar-thumb:hover {
+    background: #555;  
+}
+
+.genresButton:hover{
+    background-color: rgba(255, 255, 255, 0.452);
+    padding-bottom: 15px;
+}
