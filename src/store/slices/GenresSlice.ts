@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import filmsAPI from "../../api/api";
 
-export const fetchGenres = createAsyncThunk(
+export const fetchGenres = createAsyncThunk<Array<genersType>>(
     'fetchGenres',
     async ()=>{
         const res = await filmsAPI.getGenres()
-        return res.data.genres as []
+        return res.data.genres 
     }
 )
 

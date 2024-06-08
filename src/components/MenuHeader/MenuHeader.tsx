@@ -5,7 +5,7 @@ import './MenuHeader.css'
 
 const MenuHeader = () => {
   const dispatch = useAppDispatch();
-  const { genres, isLoad } = useAppSelector((state) => state.genersData);
+  const { genres, isLoad } = useAppSelector((state) => state.genresData);
 
   useEffect(() => {
     dispatch(fetchGenres());
