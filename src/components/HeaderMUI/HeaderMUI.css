@@ -9,3 +9,12 @@
 
 }
 
+.select{
+    border: none;
+    height: 40px;
+    padding: 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    background-color: rgba(68, 201, 218, 0.507);
+    color: white;
+}

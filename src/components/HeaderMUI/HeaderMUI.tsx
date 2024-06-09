@@ -5,10 +5,10 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import './HeaderMUI.css';
-import { lightBlue} from '@mui/material/colors';
+import { lightBlue } from '@mui/material/colors';
 import MenuHeader from '../MenuHeader/MenuHeader';
-
-
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeGlobal } from '../../store/slices/globalSlice';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,10 +52,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+  const dispatch = useAppDispatch();
+  const global = useAppSelector((state) => state.globalData.global);
+  
   return (
     <div className="HeaderBox">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{ backgroundColor: lightBlue[200] }}> {/* Set background color here */}
+        <AppBar position="static" sx={{ backgroundColor: lightBlue[200] }}>
           <Toolbar>
             <Box
               component="div"
@@ -67,18 +70,22 @@ export default function SearchAppBar() {
                 className='img'
               />
             </Box>
-            <Box  component="div" flexGrow={2}>
-                <MenuHeader/>
+            <Box component="div" flexGrow={2}>
+              <MenuHeader />
             </Box>
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
-                placeholder="Search…"
+                placeholder="Search..."
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search>
+            <select className='select' onChange={(e) => dispatch(changeGlobal(e.target.value))} value={global}>
+              <option value={'en-US'}>EN</option>
+              <option value={'ru-RU'}>RU</option>
+            </select>
           </Toolbar>
         </AppBar>
       </Box>

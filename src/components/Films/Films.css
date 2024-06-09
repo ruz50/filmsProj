@@ -1,0 +1,55 @@
+.Films {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(70, 67, 67, 0.233);
+}
+
+.Films > div {
+    width: 300px;
+    height: 450px;
+    padding: 10px;
+    margin-top: 80px;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imgNavlink {
+    margin: 20px;
+    width: 90%;
+    height: 350px;
+}
+
+.Films div > p {
+    font-weight: 600;
+    text-align: center;
+}
+
+.Films .pageChange {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; 
+    border: none;
+}
+
+.Films .pageChange > button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Films .pageChange > button:hover {
+    background-color: lightgray;
+}

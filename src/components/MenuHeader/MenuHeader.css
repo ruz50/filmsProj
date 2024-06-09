@@ -4,7 +4,8 @@
     overflow-x: hidden;   
     overflow-y: hidden;   
     width: 600px;        
-    white-space: nowrap; 
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif; 
 }
 
 .genresButton {

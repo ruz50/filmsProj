@@ -1,0 +1,18 @@
+.Film{
+    width: 100%;
+    display: flex;
+}
+.Film >img{
+    width: 500px;
+    height: 500px;
+    background-size: contain;
+}
+.Film>div{
+    width: 35%;
+    margin-left: 30px;
+}
+.pPar{
+    display: block;
+    font-weight: 600;
+    text-decoration: underline;
+}
