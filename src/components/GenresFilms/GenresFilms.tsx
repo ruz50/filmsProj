@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { fetchGenresFilm } from '../../store/slices/GenresfilmSlice'
 import { useParams } from 'react-router-dom'
