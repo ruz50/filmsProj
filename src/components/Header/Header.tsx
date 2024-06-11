@@ -4,7 +4,7 @@ import MenuHeader from '../MenuHeader/MenuHeader'
 
 const Header = () => {
     const[open,setOpen]=useState(false)
-    const isOpen:()=>void =()=>{
+    const isOpen =()=>{
         setOpen(!open)
     }
 
