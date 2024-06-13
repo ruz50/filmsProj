@@ -9,10 +9,9 @@ const MenuHeader = () => {
   const dispatch = useAppDispatch();
   const { genres, isLoad } = useAppSelector((state) => state.genresData);
   const {global} = useAppSelector((state)=>state.globalData)
-  const pageCount = useAppSelector((state)=>state.filmsData.pageCount)
   useEffect(() => {
     dispatch(fetchGenres(global));
-  }, [dispatch]);
+  }, [global]);
 
   return (
     <div className="genresDiv">

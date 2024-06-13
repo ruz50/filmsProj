@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import { changePageCount, fetchFilms } from "../../store/slices/FilmsSlice"
 import { NavLink } from "react-router-dom"
 import './Films.css'
+import  Button from "../Button/Button"
 
 const Films = () => {
     const dispatch = useAppDispatch()
@@ -12,11 +13,8 @@ const Films = () => {
     useEffect(() => {
         window.scrollTo(0,0)
         dispatch(fetchFilms({pageCount,global}))
-    }, [ pageCount])
+    }, [ global,pageCount])
 
-    const changePageFunc = (newPageCount:number) => {
-        dispatch(changePageCount(newPageCount))
-    }
 
     return (
         <div className="Films">
@@ -29,11 +27,8 @@ const Films = () => {
                 </div>
             ))}
             <div className="pageChange">
-                <button onClick={() => changePageFunc(pageCount)}>{pageCount}</button>
-                <button onClick={() => changePageFunc(pageCount + 1)}>{pageCount + 1}</button>
-                <button onClick={() => changePageFunc(pageCount + 2)}>{pageCount + 2}</button>
-                <button onClick={() => changePageFunc(pageCount + 1)}>+</button>
-            </div>
+                <Button/>
+                </div>
         </div>
     )
 }

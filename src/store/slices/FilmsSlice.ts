@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import filmsAPI from "../../api/api";
+import { act } from "react";
 
-// Define the argument types as objects for both thunks
 export const fetchFilms = createAsyncThunk<Array<FilmsObj>, { pageCount: number; global: string }>(
-    'films/fetchFilms',
+    'fetchFilms',
     async ({ pageCount, global }) => {
         const res = await filmsAPI.getFilms(pageCount, global);
         return res.data.results;
@@ -11,12 +11,28 @@ export const fetchFilms = createAsyncThunk<Array<FilmsObj>, { pageCount: number;
 );
 
 export const fetchFilm = createAsyncThunk<FilmsObj, { id: string; global: string }>(
-    'films/fetchFilm',
+    'fetchFilm',
     async ({ id, global }) => {
         const res = await filmsAPI.getOne(id, global);
         return res.data;
     }
 );
+
+export const fetchSearch = createAsyncThunk<Array<FilmsObj>, string>(
+    'fetchSearch',
+    async (search) => {
+        const res = await filmsAPI.getSearch(search);
+        return res.data.results;
+    }
+);
+
+export const fetcTrailer = createAsyncThunk(
+    'fetchTrailer',
+    async (movieId : string | undefined)=>{
+        const res = await filmsAPI.getTrailer(movieId)
+        return res.data.results
+    }
+)
 
 export type FilmsObj = {
     adult: boolean;
@@ -39,6 +55,9 @@ type FilmsState = {
     isLoad: boolean;
     film: FilmsObj;
     pageCount: number;
+    search: string;
+    searchFilms: Array<FilmsObj>;
+    trailer : any
 };
 
 const initialState: FilmsState = {
@@ -59,15 +78,21 @@ const initialState: FilmsState = {
         vote_average: 0,
         vote_count: 0
     },
-    pageCount: 1
+    pageCount: 1,
+    search: '',
+    searchFilms: [],
+    trailer:[]
 };
 
 const filmsSlice = createSlice({
     name: 'filmsSlice',
-    initialState: initialState,
+    initialState,
     reducers: {
         changePageCount(state, action: PayloadAction<number>) {
             state.pageCount = action.payload;
+        },
+        changeSearch(state, action: PayloadAction<string>) {
+            state.search = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -82,12 +107,18 @@ const filmsSlice = createSlice({
             .addCase(fetchFilm.pending, (state) => {
                 state.isLoad = true;
             })
-            .addCase(fetchFilm.fulfilled, (state , action: PayloadAction<FilmsObj>) => {
+            .addCase(fetchFilm.fulfilled, (state, action: PayloadAction<FilmsObj>) => {
                 state.isLoad = false;
                 state.film = action.payload;
-            });
+            })
+            .addCase(fetchSearch.fulfilled, (state, action: PayloadAction<Array<FilmsObj>>) => {
+                state.searchFilms = action.payload;
+            })
+            .addCase(fetcTrailer.fulfilled, (state , action)=>{
+                state.trailer = action.payload
+            })
     },
 });
 
-export const { changePageCount } = filmsSlice.actions;
+export const { changeSearch, changePageCount } = filmsSlice.actions;
 export default filmsSlice.reducer;

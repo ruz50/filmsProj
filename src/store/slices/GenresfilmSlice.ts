@@ -1,19 +1,18 @@
 import { createSlice,createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import filmsAPI from "../../api/api";
+import { FilmsObj } from "./FilmsSlice";
 
-export const fetchGenresFilm  = createAsyncThunk<Array<GenresFilmobj>,{genresid :string | undefined,pageCount : number}>(
+export const fetchGenresFilm  = createAsyncThunk<Array<FilmsObj>,{genresid :string | undefined,pageCount : number}>(
     'fetchGenresFilm',
     async ({genresid,pageCount})=>{
         const res = await filmsAPI.getGenresFilm(genresid,pageCount)
-        return res.data
+        return res.data.results
     }
 )
-type GenresFilmobj ={
-    title:string
-}
+
 
 type GenresInitState = {
-    genresFilm : Array<GenresFilmobj>,
+    genresFilm : Array<FilmsObj>,
     isLoad : boolean
 }
 
@@ -34,7 +33,7 @@ const GenresfilmSlice = createSlice({
             }
         )
         .addCase(
-            fetchGenresFilm.fulfilled,(state,action:PayloadAction<Array<GenresFilmobj>>)=>{
+            fetchGenresFilm.fulfilled,(state,action:PayloadAction<Array<FilmsObj>>)=>{
                 state.genresFilm = action.payload
                 state.isLoad = false
             }

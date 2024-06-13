@@ -1,10 +1,11 @@
 .Film{
     width: 100%;
     display: flex;
+    position: relative;
 }
 .Film >img{
     width: 500px;
-    height: 500px;
+    height: 350px;
     background-size: contain;
 }
 .Film>div{
@@ -15,4 +16,10 @@
     display: block;
     font-weight: 600;
     text-decoration: underline;
+}
+
+.divVideo{
+    position: absolute;
+    top: 650px;
+    left: 400px;
 }

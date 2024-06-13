@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 const GenresFilm = () => {
     const dispatch =useAppDispatch()
     const {genresFilm,isLoad}=useAppSelector((state)=>state.genresfilmData)
-    console.log(genresFilm);
     
   return (
     <div>

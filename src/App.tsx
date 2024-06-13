@@ -4,15 +4,13 @@ import { Route,Routes } from 'react-router-dom';
 import '@fontsource/inter';
 import Main from './Pages/Main/Main';
 import GenresFilms from './components/GenresFilms/GenresFilms';
-import { useAppSelector } from './store/hooks';
+import Header from './components/Header/Header';
 
 
 function App() {
-  const {genresFilm} =useAppSelector((state)=>state.genresfilmData)
-  console.log(genresFilm);
-  
   return (
     <div className='App'>
+      <Header/>
       <Routes>
         <Route path='/' element={<Main/>}/>
         <Route path='/films/:id' element={<Film/>}/>

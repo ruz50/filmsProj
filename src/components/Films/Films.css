@@ -36,12 +36,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
     gap: 10px; 
     border: none;
 }
 
-.Films .pageChange > button {
+.Films .pageChange  button {
     padding: 10px 20px;
     border: none;
     border-radius: 12px;
@@ -50,6 +50,6 @@
     transition: background-color 0.3s;
 }
 
-.Films .pageChange > button:hover {
+.Films .pageChange  button:hover {
     background-color: lightgray;
 }
