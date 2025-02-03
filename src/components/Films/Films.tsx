@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
-import { changePageCount, fetchFilms } from "../../store/slices/FilmsSlice"
+import { fetchFilms } from "../../store/slices/FilmsSlice"
 import { NavLink } from "react-router-dom"
 import './Films.css'
 import  Button from "../Button/Button"

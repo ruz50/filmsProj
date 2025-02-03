@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchGenres, genersType } from "../../store/slices/GenresSlice";
 import './MenuHeader.css'
-import { fetchGenresFilm } from "../../store/slices/GenresfilmSlice";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const MenuHeader = () => {
   const dispatch = useAppDispatch();

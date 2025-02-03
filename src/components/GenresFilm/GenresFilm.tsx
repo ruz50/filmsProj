@@ -1,8 +1,6 @@
-import React from 'react'
-import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import {useAppSelector } from '../../store/hooks'
 
 const GenresFilm = () => {
-    const dispatch =useAppDispatch()
     const {genresFilm,isLoad}=useAppSelector((state)=>state.genresfilmData)
     
   return (

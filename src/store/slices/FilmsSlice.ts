@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import filmsAPI from "../../api/api";
-import { act } from "react";
+
 
 export const fetchFilms = createAsyncThunk<Array<FilmsObj>, { pageCount: number; global: string }>(
     'fetchFilms',

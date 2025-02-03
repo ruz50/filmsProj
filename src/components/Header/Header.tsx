@@ -3,10 +3,7 @@ import SearchAppBar from '../HeaderMUI/HeaderMUI'
 import MenuHeader from '../MenuHeader/MenuHeader'
 
 const Header = () => {
-    const[open,setOpen]=useState(false)
-    const isOpen =()=>{
-        setOpen(!open)
-    }
+    const[open]=useState(false)
 
   return (
     
